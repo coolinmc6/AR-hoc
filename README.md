@@ -1,25 +1,23 @@
-# ReduxSimpleStarter
+# README
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-###Getting Started###
+## Lecture 33: What is a Higher Order Component?
+- A higher order component is a React component that adds some additional functionality or
+behavior to a normal React component
+- We take a higher order component + a component to create an "enhanced" or "composed" 
+component
+- It's a great way to extract functionality that would be useful for other components
 
-There are two methods for getting started with this repo.
 
-####Familiar with Git?#####
-Checkout this repo, install dependencies, then start the gulp process with the following:
+## Lecture 34: Connect and Provider
+- connect() from 'react-redux' is an example of a higher order component
 
-```
-	> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
-	> cd ReduxSimpleStarter
-	> npm install
-	> npm start
-```
+## Lecture 35: Authentication HOC
+- this is not a proper back-end auth app
+- we are building a helper to handle authentication routes; it's a boolean yes/no of whether
+the user is logged in or not
+  - user tries to visit protected route: logged in?
+- not finished...
 
-####Not Familiar with Git?#####
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
-```
-	> npm install
-	> npm start
-```
+
