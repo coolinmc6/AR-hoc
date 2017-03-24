@@ -130,7 +130,65 @@ export default connect(mapStateToProps, actions)(Header);
 - here we just built the Auth HOC, we didn't discuss it...see L41 for discussion
 
 ## Lecture 41: HOC Scaffold Code
+```js
+// In some other location...(not in this file)
+// we want to use this HOC
 
+import Authentication // this is my HOC
+import Resources // This is the component I want to wrap
+
+const ComposedComponent = Authentication(Resources)
+
+// In some render method...
+<ComposedComponent />
+```
+
+## Lecture 42: Nesting Higher Order Components
+- we need to connect our authentication HOC to our Redux store
+- We now know that our HOC is connected to our Redux store AND thus we know whether the user
+is logged in or not.
+- To connect Authentication to Redux, we used `connect`:
+  - import connect at the top
+  - write `mapStateToProps()` function; we want the 'authenticated' property from state
+  - lastly return the connected component: `return connect(mapStateToProps)(Authentication)
+- Although HOC's are a little bit more complicated, connecting it to Redux wasn't much different
+than what I've seen.  I'm still using `connect`, I am still grabbing state from `mapStateToProps`,
+and instead of `export default connect...` I am returning the connected component
+
+## Lecture 43: Accessing React Router on Context
+- Context is something similar to props but it spans the entire render tree so our resources 
+component can make direct access to a context property that is defined by the Router
+- context can be abused so we have to declare our need for context
+```js
+static contextTypes = {
+  router: React.PropTypes.object
+}
+```
+
+## Lecture 44: Class-level Properties
+- Syntax Discussion:
+```js
+static contextTypes = {
+  router: React.PropTypes.object
+}
+```
+  - using the static keyword defines what's called a class-level property
+  - It gives any other application that ability to reference .contextTypes
+  - The 'static' keyword is defining a property or an object on the actual class, not an
+  instance of the class but the actual class
+**CM** => REVISIT
+
+## Lecture 45: Handling HOC Edge Cases
+
+
+## Lecture 46: HOC Review
+- Component + Higher Order Component = Enhanced Component or Composed Component
+- the HOC we created is a function; we called our function with the Composed Component
+- Inside that HOC, we define a new class (called Authentication) which, in its render
+method, we just return the ComposedComponent as well as pass along its props as well
+- To use the HOC, inside of our Router, right before we tried to render it, we wrapped
+the HOC: `<Route path="resources" component={requireAuth(Resources)} />`
+- Complete
 
 
 
